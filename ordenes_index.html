@@ -800,5 +800,21 @@ function LogsView(){
 
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
 </script>
+
+<script>
+// Colorear cajas del dashboard
+setTimeout(() => {
+  const cards = document.querySelectorAll('[style*="padding: 24px"]');
+  const colors = ['#4CAF82', '#2196F3', '#FF9800', '#9C27B0', '#F44336'];
+  let index = 0;
+  cards.forEach(card => {
+    if (card.querySelector('[style*="fontSize: 32px"]')) {
+      card.style.borderLeftColor = colors[index % colors.length];
+      index++;
+    }
+  });
+}, 500);
+</script>
+
 </body>
 </html>
