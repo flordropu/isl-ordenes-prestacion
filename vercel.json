@@ -1,0 +1,10 @@
+{
+    "buildCommand": "echo 'Building...'",
+    "outputDirectory": ".",
+    "rewrites": [
+          {
+                  "source": "/(.*)",
+                  "destination": "/ordenes_index.html"
+          }
+    ]
+}
