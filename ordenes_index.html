@@ -10,6 +10,57 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
+  .isl-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(76, 175, 130, 0.12);
+    border-left: 4px solid #4CAF82;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .isl-card:hover {
+    box-shadow: 0 4px 12px rgba(76, 175, 130, 0.2);
+    transform: translateY(-2px);
+  }
+  .isl-card-title {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .isl-card-value {
+    font-size: 36px;
+    color: #2E7D57;
+    font-weight: 700;
+  }
+  .isl-header {
+    background: linear-gradient(135deg, #4CAF82 0%, #2E7D57 100%);
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    color: white;
+  }
+  .isl-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .isl-table th {
+    background: #f5f5f5;
+    padding: 12px;
+    text-align: left;
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    border-bottom: 2px solid #e0e0e0;
+    text-transform: uppercase;
+  }
+  .isl-table td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', system-ui, sans-serif; }
   input, select, textarea, button { font-family: inherit; }
@@ -550,7 +601,7 @@ function BuscarOrdenes({session}){
               <td style={{padding:'5px 8px'}}>{o.dni}</td>
               <td style={{padding:'5px 8px'}}>{o.siniestro||'-'}</td>
               <td style={{padding:'5px 8px',maxWidth:150,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}} title={o.tipoPrestacion}>{o.tipoPrestacion}</td>
-              <td style={{padding:'5px 8px',fontSize:11,color:'#666'}}>{getPNom(o.profesionalId)}</td>
+              <!-- Dato de profesional removido -->
               <td style={{padding:'5px 8px',whiteSpace:'nowrap',color:'#666'}}>{fmt(o.fecha)}</td>
               <td style={{padding:'5px 8px'}}><Btn ch="PDF" onClick={()=>dlOne(o.id)} sm v="secondary"/></td>
             </tr>)}
