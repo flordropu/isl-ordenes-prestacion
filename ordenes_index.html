@@ -329,7 +329,11 @@ function NuevaOrden({session,onSave}){
   const[msg,setMsg]=useState('');
   const sf=k=>v=>setF(p=>({...p,[k]:v}));
   const profs=(LS.get('p')||[]).filter(p=>p.activo).map(p=>({v:p.id,l:p.nombre+' '+p.apellido+' ('+p.tipo+'. '+p.matriculaNum+')'}));
-  const profSel=(LS.get('p')||[]).find(p=>p.id===f.profesionalId);
+  const profSel=(LS.get('p')||[]).find(p=>{
+    const fullName = (p.nombre+' '+p.apellido).toLowerCase().trim();
+    const inputId = String(f.profesionalId).toLowerCase().trim();
+    return p.id===f.profesionalId || fullName===inputId || p.matriculaNum===f.profesionalId;
+  });
   const guardar=()=>{
     if(!f.apellidoNombre||!f.dni||!f.tipoPrestacion||!f.profesionalId){alert('Completá los campos obligatorios (*)');return;}
     const ords=LS.get('o')||[];
