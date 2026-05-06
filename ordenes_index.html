@@ -95,7 +95,19 @@ function parseData(raw,ext){
 }
 
 // ── PDF generator – tono institucional ──────────────────────────────────────
-function getProfById(id){return(LS.get('p')||[]).find(p=>p.id===id)||{};}
+function getProfById(id){
+  const profs = LS.get('p')||[];
+  // Buscar por ID primero
+  let prof = profs.find(p=>p.id===id);
+  if(prof) return prof;
+  // Si no encuentra por ID, buscar por matrícula
+  prof = profs.find(p=>p.matriculaNum===String(id).trim());
+  if(prof) return prof;
+  // Si no encuentra por matrícula, buscar por nombre completo
+  const nombre = String(id).toLowerCase().trim();
+  prof = profs.find(p=>(p.nombre+' '+p.apellido).toLowerCase().trim()===nombre);
+  return prof || {};
+}
 
 function generarPDF(o){
   const {jsPDF}=window.jspdf;
