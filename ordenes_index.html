@@ -854,11 +854,11 @@ function App() {
 // ── LOGIN ──────────────────────────────────────────────────────────────────
 function Login(_ref6) {
   var onLogin = _ref6.onLogin;
-  var _useState9 = useState('test@islarg.com.ar'),
+  var _useState9 = useState(''),
     _useState10 = _slicedToArray(_useState9, 2),
     email = _useState10[0],
     setEmail = _useState10[1];
-  var _useState11 = useState('Test2026'),
+  var _useState11 = useState(''),
     _useState12 = _slicedToArray(_useState11, 2),
     pass = _useState12[0],
     setPass = _useState12[1];
@@ -3248,8 +3248,8 @@ function App(){
 
 // ── LOGIN ──────────────────────────────────────────────────────────────────
 function Login({onLogin}){
-  const[email,setEmail]=useState('test@islarg.com.ar');
-  const[pass,setPass]=useState('Test2026');
+  const[email,setEmail]=useState('');
+  const[pass,setPass]=useState('');
   const[err,setErr]=useState('');
   const[focusEmail,setFocusEmail]=useState(false);
   const[focusPass,setFocusPass]=useState(false);
